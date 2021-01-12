@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="nuap.Views.LoginPage">
+             x:Class="nuap.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout
             BackgroundColor="#0274bc"
-            Padding="20,30,20,20">
+            Padding="20,30,20,40"
+            BindingContext="{Binding Login}">
             <Image
                 Source="logo"
                 WidthRequest="170">
@@ -25,10 +27,15 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
             </Label>
+            <ActivityIndicator
+                IsRunning="{Binding IsRunnig, Mode=TwoWay}"
+                VerticalOptions="CenterAndExpand">
+            </ActivityIndicator>
             <Frame
                 CornerRadius="35"
                 OutlineColor="White"
-                Padding="20,115,20,10">
+                Padding="20,90,20,10"
+                VerticalOptions="CenterAndExpand">
                 <StackLayout>
                     <Label
                         Text="Correo electrónico o celular"
@@ -39,7 +46,8 @@
                     <Entry
                         Keyboard="Email"
                         FontSize="16"
-                        TextColor="Gray">
+                        TextColor="Gray"
+                        Text="{Binding Email, Mode=TwoWay}">
                     </Entry>
                     <Label
                         Text="Contraseña"
@@ -50,7 +58,8 @@
                     <Entry
                         IsPassword="True"
                         FontSize="16"
-                        TextColor="Gray">
+                        TextColor="Gray"
+                        Text="{Binding Password, Mode=TwoWay}">
                     </Entry>
                     <Button
                         Text="Inicia Sesión"
@@ -59,7 +68,9 @@
                         HeightRequest="60"
                         TextColor="White"
                         BorderRadius="20"
-                        Padding="0,15">
+                        Padding="0,15"
+                        Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                     </Button>
                     <Label
                         Text="¿Aún no tienes cuenta? Registrate"

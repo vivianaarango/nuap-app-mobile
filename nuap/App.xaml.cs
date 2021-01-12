@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms;
-
-namespace nuap
+﻿namespace nuap
 {
     using Xamarin.Forms;
     using Views;
@@ -11,7 +9,7 @@ namespace nuap
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
