@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout
             BackgroundColor="#0274bc"
-            Padding="20,30,20,40"
+            Padding="20,0,20,40"
             BindingContext="{Binding Login}">
             <Image
                 Source="logo"
@@ -16,6 +16,7 @@
                 Text="Inicia Sesión"
                 TextColor="White" 
                 FontSize="25"
+                FontFamily="Poppins-Bold"
                 FontAttributes="Bold"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
@@ -23,14 +24,10 @@
             <Label
                 Text="Hola, gracias por volver"
                 TextColor="White" 
-                FontSize="18"
+                FontSize="16"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
             </Label>
-            <ActivityIndicator
-                IsRunning="{Binding IsRunnig, Mode=TwoWay}"
-                VerticalOptions="CenterAndExpand">
-            </ActivityIndicator>
             <Frame
                 CornerRadius="35"
                 OutlineColor="White"
@@ -39,46 +36,53 @@
                 <StackLayout>
                     <Label
                         Text="Correo electrónico o celular"
-                        TextColor="Gray"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
                         FontSize="16"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
                         Keyboard="Email"
+                        FontFamily="Poppins"
                         FontSize="16"
-                        TextColor="Gray"
+                        TextColor="#3a3a3a"
                         Text="{Binding Email, Mode=TwoWay}">
                     </Entry>
                     <Label
                         Text="Contraseña"
-                        TextColor="Gray"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
                         FontSize="16"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
                         IsPassword="True"
+                        FontFamily="Poppins"
                         FontSize="16"
-                        TextColor="Gray"
+                        TextColor="#3a3a3a"
                         Text="{Binding Password, Mode=TwoWay}">
                     </Entry>
                     <Button
                         Text="Inicia Sesión"
+                        FontFamily="Poppins"
                         TextTransform="None"
                         BackgroundColor="#fd8700"
                         HeightRequest="60"
                         TextColor="White"
                         BorderRadius="20"
                         Padding="0,15"
+                        FontSize="17"
                         Command="{Binding LoginCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                     </Button>
                     <Label
                         Text="¿Aún no tienes cuenta? Registrate"
+                        FontFamily="Poppins"
                         TextColor="Gray"
                         FontSize="16"
                         VerticalOptions="Center"
                         HorizontalOptions="Center"
-                        Padding="20,20">
+                        Padding="0,20">
                     </Label>
                 </StackLayout>
             </Frame>

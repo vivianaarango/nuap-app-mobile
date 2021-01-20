@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nuap.Android", "nuap.Androi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nuap.iOS", "nuap.iOS\nuap.iOS.csproj", "{12463793-A8F1-4FCA-9429-108C62FFF86F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nuap", "nuap\nuap.csproj", "{C987019B-D89A-4D06-A16E-9C4C061BD9BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nuap", "nuap\nuap.csproj", "{C987019B-D89A-4D06-A16E-9C4C061BD9BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

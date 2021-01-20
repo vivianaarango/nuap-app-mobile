@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nuap.Views.MessagesPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Messages}"
+            BackgroundColor="White">
+            <ListView 
+                BackgroundColor="#e0dddd"
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Messages}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="6"
+                                BackgroundColor="{Binding Color}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Grid.Column="1"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            FontFamily="Poppins"
+                                            FontSize="15" 
+                                            Text="{Binding MessageTicket}"
+                                            TextColor="{Binding FontColor}">
+                                        </Label>
+                                        <Label 
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="12" 
+                                            Text="{Binding Date}"
+                                            TextColor="{Binding FontColor}">
+                                        </Label>
+                                    </StackLayout>
+                                    <Label 
+                                        Grid.Column="2"
+                                        HorizontalOptions="End" 
+                                        FontFamily="Poppins"
+                                        FontSize="12" 
+                                        Text="{Binding Hour}"
+                                        TextColor="{Binding FontColor}">
+                                    </Label>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid
+                Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout 
+                        Grid.Column="1"
+                        VerticalOptions="Center">
+                    <Editor
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        TextColor="#3a3a3a"
+                        Placeholder="Escribir..."
+                        PlaceholderColor="#3a3a3a"
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand"
+                        AutoSize="TextChanges"
+                        Text="{Binding Message, Mode=TwoWay}">
+                    </Editor>
+                </StackLayout>
+                <Image 
+                    Grid.Column="2"
+                    HorizontalOptions="End" 
+                    Source="ic_chevron_right" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SendMessageCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

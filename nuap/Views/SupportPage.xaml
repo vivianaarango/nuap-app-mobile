@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.SupportPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Soporte" 
+             Icon="ic_message">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Home}"
+            BackgroundColor="#0274bc"
+            Padding="5,10,0,0">
+            <ListView 
+                BackgroundColor="#0274bc"
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Tickets}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GetMessagesCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Grid.Column="1"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            FontFamily="Poppins"
+                                            FontSize="17" 
+                                            Text="{Binding Issues}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            FontFamily="Poppins"
+                                            FontSize="15" 
+                                            Text="{Binding Description}"
+                                            TextColor="#c4c4c4">
+                                        </Label>
+                                        <Label 
+                                            VerticalTextAlignment="End"
+                                            FontFamily="Poppins"
+                                            FontSize="12" 
+                                            Text="{Binding Status}"
+                                            TextColor="#2a4d9c">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image 
+                                        Grid.Column="2"
+                                        HorizontalOptions="End" 
+                                        Source="ic_chevron_right">
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout
+                Padding="20,10,20,20">
+                <Button
+                    Text="Crear Ticket"
+                    FontFamily="Poppins"
+                    TextTransform="None"
+                    BackgroundColor="#fd8700"
+                    HeightRequest="60"
+                    TextColor="White"
+                    BorderRadius="20"
+                    Padding="20,20,20,20"
+                    FontSize="17"
+                    Command="{Binding LoginCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

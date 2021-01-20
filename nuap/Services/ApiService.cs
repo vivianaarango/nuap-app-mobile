@@ -7,6 +7,7 @@
     using Models;
     using Plugin.Connectivity;
     using System.Text;
+    using System.Net.Http.Headers;
 
     public class ApiService
     {
@@ -17,7 +18,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "No se ha podido conectar a internet1.",
+                    Message = "No se ha podido conectar a internet.",
                 };
             }
 
@@ -28,7 +29,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "No se ha podido conectar a internet2.",
+                    Message = "No se ha podido conectar a internet.",
                 };
             }
 
@@ -41,8 +42,8 @@
         public async Task<LoginResponse> GetUser(
             string urlBase,
             string email,
-            string password)
-        {
+            string password
+        ) {
             try
             {
                 var client = new HttpClient();
@@ -54,6 +55,82 @@
                     Encoding.UTF8, "application/x-www-form-urlencoded"));
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<LoginResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<TicketMessageResponse> GetTicketMessages(
+            string accessToken,
+            string urlBase,
+            int ticketId
+        ) {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/users/ticket/"+ticketId+"/messages");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<TicketMessageResponse>(resultJSON);
+      
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<TicketResponse> GetTickets(
+            string accessToken,
+            string urlBase
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/users/ticket");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<TicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch 
+            {
+                return null;
+            }
+        }
+
+        public async Task<ReplyTicketResponse> ReplyTicket(
+           string accessToken,
+           string urlBase,
+           int ticketID,
+           string message
+       )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/users/ticket/reply",
+                    new StringContent(string.Format(
+                    "ticket_id={0}&message={1}",
+                    ticketID, message),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
                 return result;
             }
             catch

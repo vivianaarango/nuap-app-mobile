@@ -1,6 +1,7 @@
 ﻿namespace nuap.ViewModels
 {
     using Models;
+    using System.Collections.Generic;
 
     public class MainViewModel
     {
@@ -16,7 +17,25 @@
             set;
         }
 
+        public SupportViewModel Support
+        {
+            get;
+            set;
+        }
+
+        public MessagesViewModel Messages
+        {
+            get;
+            set;
+        } 
+
         public User User
+        {
+            get;
+            set;
+        }
+
+        public List<Ticket> TicketList
         {
             get;
             set;

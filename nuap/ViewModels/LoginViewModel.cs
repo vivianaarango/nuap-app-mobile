@@ -50,7 +50,6 @@
             {
                 return new RelayCommand(Login);
             }
-
         }
 
         private async void Login()
@@ -122,12 +121,12 @@
                     "Aceptar");
                 return;
             }
-
+            
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.User = response.Data;
 
             mainViewModel.Home = new HomeViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new HomePage());
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());
         }
     }
 }

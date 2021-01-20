@@ -17,23 +17,94 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Asambly.cs" />
     <Compile Remove="Models\Class1.cs" />
     <Compile Remove="Models\Error.cs" />
+    <Compile Remove="ViewModels\InitViewModel.cs" />
+    <Compile Remove="ViewModels\ProfileViewModel.cs" />
+    <Compile Remove="Views\HomePage.xaml.cs" />
+    <Compile Remove="Views\TabbedPage1.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\HomePage.xaml" />
+    <EmbeddedResource Remove="Views\TabbedPage1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Poppins-Black.ttf" />
+    <None Remove="Resources\Fonts\Poppins-BlackItalic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+    <None Remove="Resources\Fonts\Poppins-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Poppins-ExtraBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Poppins-ExtraLightItalic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Italic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Light.ttf" />
+    <None Remove="Resources\Fonts\Poppins-LightItalic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
+    <None Remove="Resources\Fonts\Poppins-MediumItalic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+    <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
+    <None Remove="Resources\Fonts\Poppins-SemiBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Thin.ttf" />
+    <None Remove="Resources\Fonts\Poppins-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Fonts\Poppins-LightItalic.ttf" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Xam.FormsPlugin.IconEntry" Version="1.1.1" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\HomePage.xaml">
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Black.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Poppins-BlackItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-BoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-ExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-ExtraLight.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Italic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-MediumItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-SemiBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Thin.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\HomeTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\InitPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MessagesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SupportPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
