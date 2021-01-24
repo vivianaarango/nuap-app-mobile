@@ -115,7 +115,7 @@
            string urlBase,
            int ticketID,
            string message
-       )
+        )
         {
             try
             {
@@ -127,6 +127,88 @@
                     new StringContent(string.Format(
                     "ticket_id={0}&message={1}",
                     ticketID, message),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ReplyTicketResponse> CreateTicket(
+            string accessToken,
+            string urlBase,
+            string issues,
+            string message
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/users/ticket/create",
+                    new StringContent(string.Format(
+                    "issues={0}&message={1}",
+                    issues, message),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ProfileUserResponse> GetUserProfile(
+            string accessToken,
+            string urlBase
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/users/profile");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ProfileUserResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ReplyTicketResponse> EditProfile(
+           string accessToken,
+           string urlBase,
+           string name,
+           string email,
+           string phone
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/users/profile/edit",
+                    new StringContent(string.Format(
+                    "name={0}&email={1}&phone={2}",
+                    name, email, phone),
                     Encoding.UTF8, "application/x-www-form-urlencoded"));
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);

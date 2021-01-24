@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.CreateTicketPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#0274bc"
+            Padding="20,0,20,40"
+            BindingContext="{Binding CreateTicket}">
+            <Frame
+                CornerRadius="35"
+                OutlineColor="White"
+                Padding="20,60,20,10"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Label
+                        Text="En que podemos ayudarte"
+                        FontFamily="Poppins-Bold"
+                        TextColor="#0274bc"
+                        FontSize="20"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center">
+                    </Label>
+                    <Label
+                        Padding="0,40,0,0"
+                        Text="Asunto"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        TextColor="#3a3a3a"
+                        Text="{Binding Issues, Mode=TwoWay}">
+                    </Entry>
+                    <Label
+                        Text="Mensaje"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Editor
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        TextColor="#3a3a3a"
+                        PlaceholderColor="#3a3a3a"
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand"
+                        AutoSize="TextChanges"
+                        Text="{Binding Message, Mode=TwoWay}">
+                    </Editor>
+                    <Button
+                        Margin="0,30"
+                        Text="Enviar solicitud"
+                        FontFamily="Poppins"
+                        TextTransform="None"
+                        BackgroundColor="#fd8700"
+                        HeightRequest="60"
+                        TextColor="White"
+                        BorderRadius="20"
+                        FontSize="17"
+                        Command="{Binding NewTicketCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                    </Button>
+                    <Label
+                        Text="Responderemos tu inquietud lo más pronto posible"
+                        FontFamily="Poppins"
+                        TextColor="Gray"
+                        FontSize="16"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Padding="0,20">
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

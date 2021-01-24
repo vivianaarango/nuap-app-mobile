@@ -24,6 +24,7 @@
             <Label
                 Text="Hola, gracias por volver"
                 TextColor="White" 
+                FontFamily="Poppins"
                 FontSize="16"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
@@ -41,13 +42,21 @@
                         FontSize="16"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
-                        Keyboard="Email"
-                        FontFamily="Poppins"
-                        FontSize="16"
-                        TextColor="#3a3a3a"
-                        Text="{Binding Email, Mode=TwoWay}">
-                    </Entry>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_user">
+                        </Image>
+                        <Entry
+                            Keyboard="Email"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand"
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Email, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
                     <Label
                         Text="Contraseña"
                         TextColor="#949494"
@@ -55,13 +64,21 @@
                         FontSize="16"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
-                        IsPassword="True"
-                        FontFamily="Poppins"
-                        FontSize="16"
-                        TextColor="#3a3a3a"
-                        Text="{Binding Password, Mode=TwoWay}">
-                    </Entry>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_lock">
+                        </Image>
+                        <Entry
+                            IsPassword="True"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand"
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Password, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
                     <Button
                         Text="Inicia Sesión"
                         FontFamily="Poppins"

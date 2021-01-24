@@ -27,7 +27,19 @@
         {
             get;
             set;
-        } 
+        }
+
+        public CreateTicketViewModel CreateTicket
+        {
+            get;
+            set;
+        }
+
+        public UserProfileViewModel UserProfile
+        {
+            get;
+            set;
+        }
 
         public User User
         {

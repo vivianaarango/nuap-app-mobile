@@ -15,7 +15,6 @@
         private ApiService apiService;
         private ObservableCollection<Message> messages;
         private bool isRefreshing;
-        //private bool isEnabled;
         private string message;
 
         public Ticket Ticket
@@ -35,12 +34,6 @@
             get { return this.isRefreshing; }
             set { SetValue(ref this.isRefreshing, value); }
         }
-
-       /* public bool IsEnabled
-        {
-            get { return this.isEnabled; }
-            set { SetValue(ref this.isEnabled, value); }
-        }*/
 
         public string Message
         {
@@ -68,7 +61,6 @@
         {
             this.Ticket = ticket;
             this.apiService = new ApiService();
-            //this.isEnabled = true;
             this.LoadMessages();
         }
 
@@ -141,18 +133,15 @@
             {
                 await Application.Current.MainPage.DisplayAlert(
                         "Error",
-                        "No haz ingresado respuesta a este ticket",
+                        "No haz ingresado una respuesta para este ticket",
                         "Aceptar"
                     );
                 return;
             }
 
-           // this.IsEnabled = false;
-
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
             {
-               // this.IsEnabled = true;
                 this.Message = "";
 
                 await Application.Current.MainPage.DisplayAlert(
@@ -172,7 +161,6 @@
 
             if (response == null)
             {
-               // this.IsEnabled = true;
                 this.Message = "";
 
                 await Application.Current.MainPage.DisplayAlert(
@@ -184,7 +172,6 @@
 
             if (response.Errors != null)
             {
-               // this.IsEnabled = true;
                 this.Message = "";
 
                 await Application.Current.MainPage.DisplayAlert(
@@ -195,7 +182,6 @@
             }
 
             this.Message = "";
-            //this.IsEnabled = true;
             this.LoadMessages();
         }
     }

@@ -6,6 +6,7 @@
     using Xamarin.Forms;
     using Views;
     using Services;
+    using Helpers;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -41,7 +42,7 @@
         public LoginViewModel()
         {
             this.apiService = new ApiService();
-            this.isEnabled = true;  
+            this.IsEnabled = true;
         }
 
         public ICommand LoginCommand
@@ -124,6 +125,10 @@
             
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.User = response.Data;
+            Settings.Token = response.Data.api_token;
+            Settings.UserType = response.Data.role;
+            Settings.Phone = response.Data.phone;
+            Settings.Email = response.Data.email;
 
             mainViewModel.Home = new HomeViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());

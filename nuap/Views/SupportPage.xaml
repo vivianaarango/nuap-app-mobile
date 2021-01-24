@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="nuap.Views.SupportPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Soporte" 
-             Icon="ic_message">
+             Title="Soporte">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Home}"
@@ -38,19 +37,20 @@
                                         Grid.Column="1"
                                         VerticalOptions="Center">
                                         <Label 
+                                            HorizontalOptions="StartAndExpand"
                                             FontFamily="Poppins"
-                                            FontSize="17" 
+                                            FontSize="16" 
                                             Text="{Binding Issues}"
                                             TextColor="#3a3a3a">
                                         </Label>
                                         <Label 
+                                            HorizontalOptions="StartAndExpand"
                                             FontFamily="Poppins"
-                                            FontSize="15" 
+                                            FontSize="14" 
                                             Text="{Binding Description}"
                                             TextColor="#c4c4c4">
                                         </Label>
-                                        <Label 
-                                            VerticalTextAlignment="End"
+                                        <Label
                                             FontFamily="Poppins"
                                             FontSize="12" 
                                             Text="{Binding Status}"
@@ -80,7 +80,7 @@
                     BorderRadius="20"
                     Padding="20,20,20,20"
                     FontSize="17"
-                    Command="{Binding LoginCommand}"
+                    Command="{Binding CreateTicketCommand}"
                     IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                 </Button>
             </StackLayout>

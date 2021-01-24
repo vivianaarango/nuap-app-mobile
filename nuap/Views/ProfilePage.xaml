@@ -3,29 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="nuap.Views.ProfilePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Perfil"
-             Icon="ic_account_box">
+             Title="Perfil">
     <ContentPage.Content>
         <StackLayout
             BackgroundColor="#0274bc"
-            Padding="00,40,0,0" >
+            Padding="00,40,0,0" 
+            BindingContext="{Binding Home}">
             <Label
                 Text="Hola,"
                 Padding="40,0,0,0"
                 TextColor="White" 
                 FontSize="25"
+                TextTransform="Uppercase"
                 FontFamily="Poppins-Bold"
                 FontAttributes="Bold"
-                VerticalOptions="Center" >
+                VerticalOptions="Center">
             </Label>
             <Label
-                Text="nombre de usuario,"
                 Padding="40,0,0,25"
                 TextColor="White" 
                 FontSize="25"
                 FontFamily="Poppins-Bold"
+                TextTransform="Uppercase"
                 FontAttributes="Bold"
-                VerticalOptions="Center">
+                VerticalOptions="Center"
+                Text="{Binding UserName, Mode=TwoWay}">
             </Label>
             <Frame
                 CornerRadius="35"
@@ -33,42 +35,63 @@
                 Padding="20,20,20,0"
                 VerticalOptions="FillAndExpand">
                 <StackLayout>
-                    <Button
-                        Text="Editar Perfil"
-                        FontFamily="Poppins-Bold"
-                        TextTransform="None"
-                        HeightRequest="60"
-                        TextColor="#2a4d9c"
-                        BackgroundColor="Transparent"
-                        Padding="0,15"
-                        FontSize="17"
-                        HorizontalOptions="Start"
-                        Command="{Binding LoginCommand}"
-                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"/>
-                    <Button
-                        Text="Mis Direcciones"
-                        FontFamily="Poppins-Bold"
-                        TextTransform="None"
-                        HeightRequest="60"
-                        TextColor="#2a4d9c"
-                        BackgroundColor="Transparent"
-                        Padding="0,15"
-                        FontSize="17"
-                        HorizontalOptions="Start"
-                        Command="{Binding LoginCommand}"
-                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"/>
-                    <Button
-                        Text="Historial de Pedidos"
-                        FontFamily="Poppins-Bold"
-                        TextTransform="None"
-                        HeightRequest="60"
-                        TextColor="#2a4d9c"
-                        BackgroundColor="Transparent"
-                        Padding="0,15"
-                        FontSize="17"
-                        HorizontalOptions="Start"
-                        Command="{Binding LoginCommand}"
-                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"/>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_man_user">
+                        </Image>
+                        <Button
+                            Text="Editar Perfil"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="End"
+                            Command="{Binding ProfileCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_pin">
+                        </Image>
+                            <Button
+                                Text="Mis Direcciones"
+                                FontFamily="Poppins-Bold"
+                                TextTransform="None"
+                                HeightRequest="60"
+                                TextColor="#2a4d9c"
+                                BackgroundColor="Transparent"
+                                Padding="0,15"
+                                FontSize="16"
+                                HorizontalOptions="Start"
+                                Command="{Binding LoginCommand}">
+                            </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start"
+                            Source="ic_shopping_cart">
+                        </Image>
+                        <Button
+                            Text="Historial de Pedidos"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="Start"
+                            Command="{Binding LoginCommand}">
+                        </Button>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </StackLayout>
