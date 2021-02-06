@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nuap.Views.ProductCommercePage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="White"
+            BindingContext="{Binding ProductCommerce}"
+            Padding="5,10,5,0">
+            <StackLayout
+                Margin="0,20,0,0">
+                <Frame
+                    BorderColor="#e2e2e2"
+                    CornerRadius="20"
+                    HasShadow="true"
+                    Padding="5"
+                    BackgroundColor="#f6f8f9">
+                    <SearchBar
+                        FontFamily="Poppins"
+                        FontSize="15"
+                        TextColor="#3a3a3a"
+                        PlaceholderColor="#3a3a3a"
+                        Placeholder="Busca tu producto, marca"
+                        Text="{Binding Filter, Mode=TwoWay}"
+                        SearchCommand="{Binding SearchCommand}" InputTransparent="False">
+                    </SearchBar>
+                </Frame>
+            </StackLayout>
+            <Label
+                Text="{Binding CategoryName}"
+                Padding="20,20,0,0"
+                TextColor="#1b1464" 
+                FontFamily="Poppins-Bold"
+                FontSize="20"
+                VerticalOptions="Center">
+            </Label>
+            <ListView 
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Products}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                BorderColor="Transparent"
+                                CornerRadius="20"
+                                Margin="5,5,5,5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding EditProductCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center">
+                                        <StackLayout>
+                                            <Frame
+                                                CornerRadius="25"
+                                                Padding="10,10,10,10"
+                                                VerticalOptions="CenterAndExpand">
+                                                <Image 
+                                                    HeightRequest="60"
+                                                    WidthRequest="60"
+                                                    Source="{Binding Image}" 
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    VerticalOptions="CenterAndExpand">
+                                                </Image>
+                                            </Frame>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout 
+                                        Grid.Column="2"
+                                        Padding="20,0,0,0"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="StartAndExpand"
+                                            FontFamily="Poppins"
+                                            FontSize="15" 
+                                            Text="{Binding Name}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="StartAndExpand"
+                                            FontFamily="Poppins"
+                                            FontSize="15" 
+                                            Text="{Binding Stock}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="StartAndExpand"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="15" 
+                                            Text="{Binding SalePrice}"
+                                            TextColor="#1b1464">
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout 
+                                        Grid.Column="3"
+                                        Padding="20,0,0,0"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="EndAndExpand"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="14" 
+                                            Text="{Binding StatusText}"
+                                            TextColor="{Binding StatusColor}">
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout
+                Padding="20,10,20,20">
+                <Button
+                    Text="Crear Producto"
+                    FontFamily="Poppins"
+                    TextTransform="None"
+                    BackgroundColor="#fd8700"
+                    HeightRequest="60"
+                    TextColor="White"
+                    BorderRadius="20"
+                    Padding="20,20,20,20"
+                    FontSize="17"
+                    Command="{Binding CreateProductCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

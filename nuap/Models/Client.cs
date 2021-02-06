@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
-
-namespace nuap.Models
+﻿namespace nuap.Models
 {
+    using Newtonsoft.Json;
+
     public class Client
     {
         [JsonProperty(PropertyName = "id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }

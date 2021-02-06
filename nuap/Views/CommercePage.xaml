@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.CommercePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Comercio">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#0274bc"
+            BindingContext="{Binding HomeCommerce}">
+            <StackLayout Padding="40,30,40,30">
+                <Frame CornerRadius="100"
+                    Padding="0"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True">
+                    <Image 
+                        HeightRequest="140"
+                        WidthRequest="140"
+                        Source="{Binding Logo}" 
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                    </Image>
+                </Frame>
+            </StackLayout>
+            <Frame
+                CornerRadius="35"
+                OutlineColor="White"
+                Padding="20,20,20,0"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_caja">
+                        </Image>
+                        <Button
+                            Text="Inventario de Productos"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="End"
+                            Command="{Binding InventoryCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_bolsa_de_la_compra">
+                        </Image>
+                        <Button
+                            Text="Mis Pedidos"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            VerticalOptions="Start"
+                            HorizontalOptions="StartAndExpand"
+                            Command="{Binding OrdersCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_ventas">
+                        </Image>
+                        <Button
+                            Text="Mis Ventas"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            VerticalOptions="Start"
+                            HorizontalOptions="StartAndExpand"
+                            Command="{Binding LoginCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start"
+                            Source="ic_pagar">
+                        </Image>
+                        <Button
+                            Text="Balances y Pagos"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="StartAndExpand"
+                            Command="{Binding LoginCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start"
+                            Source="ic_retirada">
+                        </Image>
+                        <Button
+                            Text="Solicitar Retiro"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="StartAndExpand"
+                            Command="{Binding LoginCommand}">
+                        </Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

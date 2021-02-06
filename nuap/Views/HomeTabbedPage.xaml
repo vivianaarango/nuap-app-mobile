@@ -6,8 +6,8 @@
     x:Class="nuap.Views.HomeTabbedPage"
     Title="NUAP">
     <TabbedPage.Children>
-        <tabs:ProfilePage/>
         <tabs:InitPage/>
         <tabs:SupportPage/>
+        <tabs:ProfilePage/>
     </TabbedPage.Children>
 </TabbedPage>

@@ -130,8 +130,17 @@
             Settings.Phone = response.Data.phone;
             Settings.Email = response.Data.email;
 
-            mainViewModel.Home = new HomeViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());
+            this.IsEnabled = true;
+
+            if (response.Data.role == "Usuario")
+            {
+                mainViewModel.Home = new HomeViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());
+            } else
+            {
+                mainViewModel.HomeCommerce = new HomeCommerceViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
+            }
         }
     }
 }

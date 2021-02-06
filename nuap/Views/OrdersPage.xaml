@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nuap.Views.OrdersPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
+    BackgroundImageSource="Mis_pedidos.png">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Orders}"
+            Padding="5,55,0,0">
+            <Label
+                Text="Mis pedidos"
+                Padding="20,160,0,0"
+                TextColor="#0274bc" 
+                FontFamily="Poppins-Bold"
+                FontSize="20"
+                VerticalOptions="Center">
+            </Label>
+            <ListView 
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Orders}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="15,8,15,5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GetProductsCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Padding="5,0,5,0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="StartAndExpand"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="18" 
+                                            Text="{Binding Id}"
+                                            TextColor="#8c8c8c">
+                                        </Label>
+                                        <Label 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="StartAndExpand"
+                                            FontFamily="Poppins"
+                                            FontSize="16" 
+                                            Text="{Binding Total}"
+                                            TextColor="#c3c3c3">
+                                        </Label>
+                                        <Image
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            Source="{Binding RatingImage}">
+                                        </Image>
+                                    </StackLayout>
+                                    <StackLayout 
+                                        Grid.Column="2"
+                                        Padding="10,0,0,0"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center">
+                                        <Button
+                                            Text="{Binding Status}"
+                                            FontFamily="Poppins-Bold"
+                                            TextTransform="None"
+                                            BackgroundColor="{Binding StatusColor}"
+                                            HeightRequest="40"
+                                            TextColor="#414b5a"
+                                            BorderRadius="12"
+                                            FontSize="14">
+                                        </Button>
+                                    </StackLayout>
+                                    <Image 
+                                        Grid.Column="3"
+                                        HorizontalOptions="End" 
+                                        Source="ic_chevron_right_gray">
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

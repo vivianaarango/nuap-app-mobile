@@ -20,11 +20,13 @@
             get { return this.issues; }
             set { SetValue(ref this.issues, value); }
         }
+
         public string Message
         {
             get { return this.message; }
             set { SetValue(ref this.message, value); }
         }
+
         public bool IsEnabled
         {
             get { return this.isEnabled; }
@@ -111,8 +113,15 @@
                 return;
             }
 
-            mainViewModel.Home = new HomeViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());
+            this.IsEnabled = true;
+            this.Message = "";
+            this.Issues = "";
+
+            await Application.Current.MainPage.DisplayAlert(
+                "",
+                "Hemos enviado tu solicitud exitosamente",
+                "Aceptar");
+            return;
         }
     }
 }

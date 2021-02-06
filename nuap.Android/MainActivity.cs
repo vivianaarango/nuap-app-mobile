@@ -1,14 +1,11 @@
-﻿using System;
-
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-namespace nuap.Droid
+﻿namespace nuap.Droid
 {
+    using Android.App;
+    using Android.Content.PM;
+    using Android.Runtime;
+    using Android.OS;
+    using Plugin.CurrentActivity;
+
     [Activity(
         Label = "nuap", 
         Icon = "@mipmap/ic_launcher", 
@@ -23,6 +20,7 @@ namespace nuap.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -34,5 +32,6 @@ namespace nuap.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
     }
 }

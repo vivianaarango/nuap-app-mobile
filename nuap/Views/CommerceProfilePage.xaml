@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.CommerceProfilePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImageSource="Register_2.png">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding CommerceProfile}">
+            <StackLayout Padding="40,40,40,10">
+                <Frame CornerRadius="100"
+                    Padding="0"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True">
+                    <Image 
+                        HeightRequest="140"
+                        WidthRequest="140"
+                        Source="{Binding Logo}" 
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                    </Image>
+                </Frame>
+            </StackLayout>
+            <Label
+                Text="Perfil"
+                Padding="20,0,0,0"
+                TextColor="#0274bc" 
+                FontFamily="Poppins-Bold"
+                FontSize="20"
+                VerticalOptions="Center">
+            </Label>
+            <ScrollView>
+                <StackLayout
+                    Padding="20,20,20,50">
+                    <Label
+                        Text="Razón Social"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_user">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding CompanyName, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="E-mail"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_envelope">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Email, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="Teléfono"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_smartphone">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            FontSize="16"
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="#3a3a3a"
+                            Text="{Binding Phone, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="Comisión"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_porcentaje">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Commission, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="Costo de Envio"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_entrega">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding ShippingCost, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="¿Deseas cambiar tu contraseña?"
+                        TextColor="#0274bc" 
+                        FontFamily="Poppins-Bold"
+                        FontSize="15"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Padding="20,10,20,0">
+                        <Button
+                            Text="Cambiar Clave"
+                            FontFamily="Poppins"
+                            TextTransform="None"
+                            BackgroundColor="#ffc33a"
+                            HeightRequest="50"
+                            TextColor="#4d483a"
+                            BorderRadius="25"
+                            Padding="0,15"
+                            FontSize="16"
+                            Command="{Binding ChangePasswordCommand}"
+                            IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                        </Button>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

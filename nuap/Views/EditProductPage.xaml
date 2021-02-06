@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nuap.Views.EditProductPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#2a4d9c"
+            BindingContext="{Binding EditProduct}">
+            <StackLayout Padding="115,10,115,10">
+                <Frame
+                    CornerRadius="25"
+                    Padding="10,10,10,10"
+                    VerticalOptions="CenterAndExpand">
+                    <Image 
+                        HeightRequest="150"
+                        WidthRequest="150"
+                        Source="{Binding Logo}" 
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ChangeImageCommand}">
+                            </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+            </StackLayout>
+            <Frame
+                CornerRadius="35"
+                OutlineColor="White"
+                Padding="20,20,20,30"
+                VerticalOptions="FillAndExpand">
+                <StackLayout
+                    Padding="10,15,10,0">
+                    <StackLayout
+                        Padding="80,0,80,0">
+                        <Button
+                            Text="Cargar Imagen"
+                            FontFamily="Poppins"
+                            TextTransform="None"
+                            BackgroundColor="#ffc33a"
+                            HeightRequest="60"
+                            TextColor="White"
+                            BorderRadius="15"
+                            Padding="0,15"
+                            FontSize="16"
+                            Command="{Binding ChangeImageCommand}"
+                            IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Padding="45,0,45,20">
+                        <Label
+                            Text="La imagen debe ser mayor de 360 x 360 en formatos PNG o JPG y un tamano menor a 2MB."
+                            FontFamily="Poppins"
+                            TextColor="#9d9d9d"
+                            FontSize="12"
+                            VerticalOptions="Center">
+                        </Label>
+                    </StackLayout>
+                    <ScrollView>
+                        <StackLayout>
+                            <Label
+                                Text="Nombre"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Name, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Sku"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Sku, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Marca"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Brand, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Descripcion"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Description, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Inventario"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Stock, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Peso"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Weight, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Largo"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Length, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Ancho"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Width, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Alto"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Height, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Precio de Compra"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding PurchasePrice, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Precio de Venta"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding Price, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Descuento"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Entry
+                                Keyboard="Numeric"
+                                FontFamily="Poppins"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="16"
+                                TextColor="#3a3a3a"
+                                Text="{Binding SpecialPrice, Mode=TwoWay}">
+                            </Entry>
+                            <Label
+                                Text="Destacado"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Switch
+                                IsToggled="{Binding IsFeatured, Mode=TwoWay}"
+                                HorizontalOptions="CenterAndExpand">
+                            </Switch>
+                            <Label
+                                Text="Activar Descuento"
+                                FontFamily="Poppins"
+                                TextColor="#949494"
+                                FontSize="16"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Switch
+                                IsToggled="{Binding HasSpecialPrice, Mode=TwoWay}"
+                                HorizontalOptions="CenterAndExpand">
+                            </Switch>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+            <StackLayout
+                BackgroundColor="#2a4d9c"
+                Padding="90,10,90,15">
+                <Button
+                    Text="Editar Producto"
+                    FontFamily="Poppins"
+                    TextTransform="None"
+                    BackgroundColor="#ffc33a"
+                    HeightRequest="60"
+                    TextColor="White"
+                    BorderRadius="25"
+                    Padding="0,15"
+                    FontSize="16"
+                    Command="{Binding EditProductCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
